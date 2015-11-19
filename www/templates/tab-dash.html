@@ -1,0 +1,42 @@
+
+
+
+<ion-view view-title="Health notes">
+  <ion-content class="padding">
+  <div class="card "  id="nuevaPresion">
+    <div class="item item-divider balanced">
+      New Pressure
+    </div>
+    <div class="item item-text-wrap">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">High</span>
+          <input type="text" placeholder="high" name="high" ng-model="newPressure.high">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Low</span>
+          <input type="text" placeholder="Low" name="low" ng-model="newPressure.low">
+        </label>
+        <div ng-click="nuevo=false;">
+        <button class="button button-small button-full button-positive" ng-class="{'disabled':!newPressure.high}" ng-click="addPressure()">
+          Save Pressure
+        </button>
+        <div>
+      </div>
+    </div>
+
+  </div>
+    <div class="list card" ng-repeat="item in items track by $index" ng-class="{'done flipInY animated':idea.done}" >
+      <div class="item item-divider">{{item.date}}</div>
+      <div class="item item-body" data-anijs="if: click, do: flipInY animated">
+        <div>
+          <div > {{item.high}} /{{item.low}}</div>
+         
+           <ion-toggle  ng-model="idea.done" >
+             
+           </ion-toggle>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
