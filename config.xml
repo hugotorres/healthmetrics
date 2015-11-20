@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.dailyidea280563" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Health metrics</name>
-  <icon src="img/icon_036.png"/>
-  <gap:splash src="img/icon_036.png" gap:platform="android" gap:density="ldpi"/>
+  <icon src="img/icon_048.png"/>
+  <gap:splash src="img/icon_048.png" gap:platform="android" gap:density="ldpi"/>
   <gap:splash src="img/icon_048.png" gap:platform="android" gap:density="mdpi"/>
   <gap:splash src="img/icon_072.png" gap:platform="android" gap:density="hdpi"/>
   <gap:splash src="img/icon_072.png" gap:platform="android" gap:density="xhdpi"/>
