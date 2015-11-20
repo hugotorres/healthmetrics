@@ -4,11 +4,10 @@
     <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle>
-<button class="button button-assertive" ng-click="borrarDatos()">
+<button class="button button-full "ng-click="borrarDatos()" 
+ng-class="{'button-calm':dataErased,'button-assertive':!dataErased}">
   Reset data
 </button>
-
-
 
     </ion-list>
   </ion-content>

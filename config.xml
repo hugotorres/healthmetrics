@@ -4,8 +4,8 @@
   <description>
         A simple  health tracking app
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-     hugo torres
+  <author email="info@perrocallejero.co" href="http://www.perrocallejero.co/">
+     Hugo Torres
     </author>
   <content src="index.html"/>
   <access origin="*"/>

@@ -39,11 +39,13 @@ angular.module('starter.controllers', [])
 })
 
 .controller('AccountCtrl', function($scope) {
+  $scope.dataErased=localStorage.getItem("items")?false:true;
   $scope.settings = {
     enableFriends: true
   };
 
   $scope.borrarDatos= function(){
-    alert('seguro?',console.log('datos borrados'));
+    alert('Are you sure? this cannot be undone!',localStorage.setItem("items", []));
+    $scope.dataErased=true;
   }
 });
