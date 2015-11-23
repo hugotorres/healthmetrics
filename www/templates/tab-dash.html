@@ -3,22 +3,24 @@
 
 <ion-view view-title="Health notes">
   <ion-content class="padding">
-  <div class="card "  id="nuevaPresion">
-    <div class="item item-divider balanced">
-      New Pressure
+  <div class=""  id="nuevaPresion">
+    <div class="item item-divider balanced" ng-click="addOne=!addOne">
+      New Pressure <i class="ion-android-add-circle"></i>
     </div>
-    <div class="item item-text-wrap">
-      <div class="list">
-        <label class="item item-input item-floating-label">
+
+    <div class="item item-text-wrap" ng-if="addOne">
+      <div >
+        <label class="item item-input ">
           <span class="input-label">High</span>
-          <input type="number" placeholder="high" name="high" ng-model="newPressure.high">
+          
+          <input type="number" placeholder="120" max="999" name="high" ng-model="newPressure.high">
         </label>
-        <label class="item item-input item-floating-label">
+        <label class="item item-input ">
           <span class="input-label">Low</span>
-          <input type="number" placeholder="Low" name="low" ng-model="newPressure.low">
+          <input type="number" placeholder="80"  max="999" name="low" ng-model="newPressure.low">
         </label>
         <div ng-click="nuevo=false;">
-        <button class="button button-small button-full button-positive" ng-class="{'disabled':!newPressure.high}" ng-click="addPressure()">
+        <button class="button button-small button-full button-positive" ng-class="{'disabled':!newPressure.high || !newPressure.low}" ng-click="addPressure()">
           Save Pressure
         </button>
         <div>
@@ -27,24 +29,16 @@
 
   </div>
 </div>
-    <div class="list card" ng-repeat="item in items track by $index" ng-class="{'done flipInY animated':idea.done}" >
-      <div class="item item-divider">{{item.date}}</div>
-      <div class="item item-body" data-anijs="if: click, do: flipInY animated">
-        <div>
-          <div > <p style="width:60%;">{{item.high}} /{{item.low}}</p>
-
-        <label class="toggle">
-           <input type="checkbox" ng-model="idea.done" >
-           <div class="track">
-             <div class="handle"></div>
-           </div>
-        </label>
-          </div>
-         
-
-         
-        </div>
+    <ion-list>
+      <ion-item ng-repeat="item in items track by $index">
+      <div class="row">
+        <div class="col high" >  {{item.high}}</div>
+          <div class="col" style="font-size:30px;">  {{item.low}}</div>
+          <div class="col col-50 fecha">  {{item.date}}</div>
       </div>
-    </div>
+      
+      </ion-item>
+    </ion-list>
+
   </ion-content>
 </ion-view>

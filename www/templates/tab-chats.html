@@ -1,17 +1,51 @@
-<ion-view view-title="Chats">
+<ion-view view-title="Weight">
   <ion-content>
-    <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
+    <div class="item item-divider balanced" ng-click="addOne=!addOne">
+      New Weight <i class="ion-android-add-circle"></i>
+    </div>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+    <div class="item item-text-wrap" ng-if="addOne">
+      <div >
+        <label class="item item-input ">
+          <span class="input-label">Weight</span>
+          
+          <input type="number" placeholder="120" max="999" name="kgs" ng-model="newWeight.kgs">
+        </label>
+       
+        <div ng-click="nuevo=false;">
+        <button class="button button-small button-full button-positive" 
+        ng-class="{'disabled':!newWeight.kgs }" ng-click="addWeight()">
+          Save Weight
+        </button>
+        <div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<div ng-repeat="weight in weights track by $index">
+   <div class="card"  href="#/tab/chats/{{weight.id}}">
+      <div class="item item-divider">{{weight.date}}</div>
+      <div class="item item-body" >
+        <div>
+           <ion-item class="item-remove-animate  item-icon-right" type="item-text-wrap" href="#/tab/chats/{{weight.id}}">
+        <p class="weight">{{weight.kgs}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="remove(weight)">
           Delete
         </ion-option-button>
-        
       </ion-item>
-    </ion-list>
+           
+         
+        </div>
+      </div>
+    </div>
+</div>
+
+
+     
+
   </ion-content>
 </ion-view>

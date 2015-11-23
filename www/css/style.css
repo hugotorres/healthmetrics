@@ -1,2 +1,12 @@
 /* Empty. Add your own CSS if you like */
 .done{ border:thin solid green;}
+
+ion-item.item{padding:0px;}
+.fecha {
+    background: slategray;
+    color: white;
+}
+.high{font-size:34px;
+	border-right: thin dashed red;
+}
+.weight{font-size:34px !important;}

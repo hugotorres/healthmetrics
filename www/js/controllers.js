@@ -6,12 +6,12 @@ angular.module('starter.controllers', [])
     Items.remove(item);
   };
   $scope.newPressure={};
-  $scope.nuevo=false;
+  $scope.addOne=false;
 
   $scope.addPressure=function(){
     var fecha= new Date();
     Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fecha.toDateString()});
-    $scope.newPressure={}
+    $scope.newPressure={};
     Items.save();
   };
 
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('ChatsCtrl', function($scope, Chats) {
+.controller('ChatsCtrl', function($scope, Weights) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -28,24 +28,36 @@ angular.module('starter.controllers', [])
   $scope.$on('$ionicView.enter', function(e) {
    // console.log(e);
   });
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+    $scope.addOne=false;
+     $scope.newWeight={};
+  $scope.weights = Weights.all();
+  $scope.remove = function(weight) {
+    Weights.remove(weight);
+  };
+    $scope.addWeight=function(){
+    var fecha= new Date();
+    Weights.add({'kgs':$scope.newWeight.kgs,'date':fecha.toDateString()});
+    $scope.newWeight={};
+    Weights.save();
   };
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('ChatDetailCtrl', function($scope, $stateParams, Weights) {
+  $scope.weight = Weights.get($stateParams.weightId);
 })
 
-.controller('AccountCtrl', function($scope) {
+
+
+.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights) {
   $scope.dataErased=localStorage.getItem("items")?false:true;
   $scope.settings = {
     enableFriends: true
   };
 
   $scope.borrarDatos= function(){
-    alert('Are you sure? this cannot be undone!',localStorage.setItem("items", []));
-    $scope.dataErased=true;
+    alert('Are you sure? this cannot be undone!',Weights.clear());
+    $state.go('tab.dash',null,{reload:true});
+    $scope.items =[];
+    $scope.weights =[];
   }
 });
