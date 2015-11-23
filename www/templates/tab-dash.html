@@ -35,6 +35,9 @@
         <div class="col high" >  {{item.high}}</div>
           <div class="col" style="font-size:30px;">  {{item.low}}</div>
           <div class="col col-50 fecha">  {{item.date}}</div>
+          <ion-option-button class="button-assertive" ng-click="remove(item)">
+          Delete
+        </ion-option-button>
       </div>
       
       </ion-item>
