@@ -30,6 +30,19 @@
   </div>
 </div>
     <ion-list>
+<!--
+          <ion-item ng-repeat="item in items track by $index">
+      <div class="row">
+        <div class="col high" >  {{item.aliados_content}}</div>
+          <div class="col low">  <img src="{{item.cmoganas_image}}"></div>
+          <div class="col col-50 fecha">  {{item.acumulacinde_content}}</div>
+          <ion-option-button class="button-assertive" ng-click="remove(item)">
+          Delete
+        </ion-option-button>
+      </div>
+      
+      </ion-item>
+-->
       <ion-item ng-repeat="item in items track by $index">
       <div class="row">
         <div class="col high" >  {{item.high}}</div>
@@ -41,6 +54,7 @@
       </div>
       
       </ion-item>
+
     </ion-list>
 
   </ion-content>

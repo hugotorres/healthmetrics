@@ -1,7 +1,19 @@
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope,Items) {
-   $scope.items=Items.all();
+/*
+  loadRemoteData();
+  function loadRemoteData(){
+
+    Items.all().then(function(items){applyRemoteData(items)});
+  };
+  function applyRemoteData(newitems){$scope.items = newitems.results};
+
+*/
+
+
+$scope.items=Items.all();
+
   $scope.remove = function(item) {
     Items.remove(item);
   };
@@ -53,10 +65,12 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+  var weights= Weights.all();
+  var items = Items.all();
 
-  $scope.profile={Weights,Items};
-  $scope.guardarPerfil=function(){
-      localStorage.setItem("perfil", JSON.stringify(items));
+  $scope.profile={weights,items};
+  $scope.addProfile=function(){
+      localStorage.setItem("perfil", JSON.stringify($scope.profile));
   }
   $scope.borrarDatos= function(){
     alert('Are you sure? this cannot be undone!',Weights.clear());
