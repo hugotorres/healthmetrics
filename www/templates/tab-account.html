@@ -1,6 +1,25 @@
 <ion-view view-title="Account">
   <ion-content>
+      <div class="item item-text-wrap" >
+      <div >
+      	<h1>Datos del perfil</h1>
+        <label class="item item-input ">
+          <span class="input-label">Edad</span>
+          <input type="number"  max="999" name="high" ng-model="profile.age">
+        </label>
+        <label class="item item-input ">
+          <span class="input-label">nombre</span>
+          <input type="text"   name="nombre" ng-model="profile.name">
+        </label>
+   
+        <button class="button button-small button-full button-positive" ng-class="{'disabled':!profile.name || !profile.age}" ng-click="addProfile()">
+          Save Profile
+        </button>
+       
+      </div>
+    </div>
     <ion-list>
+
     <ion-toggle  ng-model="settings.enableFriends">
         Enable Friends
     </ion-toggle>

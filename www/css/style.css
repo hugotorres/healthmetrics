@@ -6,7 +6,8 @@ ion-item.item{padding:0px;}
     background: slategray;
     color: white;
 }
-.high{font-size:34px;
+.high{font-size:31px;
 	border-right: thin dashed red;
 }
+.low{font-size:22px;}
 .weight{font-size:34px !important;}

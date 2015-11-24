@@ -48,12 +48,16 @@ angular.module('starter.controllers', [])
 
 
 
-.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights) {
+.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights,Items) {
   $scope.dataErased=localStorage.getItem("items")?false:true;
   $scope.settings = {
     enableFriends: true
   };
 
+  $scope.profile={Weights,Items};
+  $scope.guardarPerfil=function(){
+      localStorage.setItem("perfil", JSON.stringify(items));
+  }
   $scope.borrarDatos= function(){
     alert('Are you sure? this cannot be undone!',Weights.clear());
     $state.go('tab.dash',null,{reload:true});
