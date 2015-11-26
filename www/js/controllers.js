@@ -12,11 +12,14 @@ angular.module('starter.controllers', [])
 */
 
 
+
+
 $scope.items=Items.all();
 
   $scope.remove = function(item) {
     Items.remove(item);
   };
+
   $scope.newPressure={};
   $scope.addOne=false;
 
@@ -26,7 +29,44 @@ $scope.items=Items.all();
     $scope.newPressure={};
     Items.save();
   };
+  var xs=[];
+  var ys=[];
+  var dates=[];
+  var datosGrafica= [];
+  console.log($scope.items);
+$scope.items.forEach(function(item){
+xs.unshift(item.high);
+ys.unshift(item.low);
+dates.unshift(item.date);
 
+});
+
+
+var trace1 = {
+    x:dates,
+    y: xs,
+    type: 'scatter',
+    orientation: 'v'
+};
+
+var trace2 = {
+    x:dates,
+    y: ys,
+    type: 'scatter',
+    orientation: 'v'
+};
+
+var datosGrafica1=[{x:dates,y:ys,type:'bar',orientation: 'h'}];
+var datosGrafica2=[{x:dates,y:ys,type:'scatter',orientation: 'v'}];
+
+var datos=[trace1,trace2]
+
+var layout1 = {
+    showlegend: false
+};
+
+
+Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
 
 
 })
@@ -43,6 +83,45 @@ $scope.items=Items.all();
     $scope.addOne=false;
      $scope.newWeight={};
   $scope.weights = Weights.all();
+
+
+
+/*=======*/
+
+  var xs=[];
+  var ys=[];
+  var dates=[];
+  var datosGrafica= [];
+  console.log($scope.weights);
+$scope.weights.forEach(function(weight){
+xs.unshift(weight.kgs);
+dates.unshift(weight.date);
+
+});
+
+
+var trace1 = {
+    x:dates,
+    y: xs,
+    type: 'scatter',
+    orientation: 'v'
+};
+
+var datos=[trace1]
+
+var layout1 = {
+    showlegend: false
+};
+
+
+
+Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
+
+/*=====*/
+
+
+
+
   $scope.remove = function(weight) {
     Weights.remove(weight);
   };
