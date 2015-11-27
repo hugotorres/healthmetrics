@@ -33,7 +33,6 @@ $scope.items=Items.all();
   var ys=[];
   var dates=[];
   var datosGrafica= [];
-  console.log($scope.items);
 $scope.items.forEach(function(item){
 xs.unshift(item.high);
 ys.unshift(item.low);
