@@ -29,6 +29,7 @@ $scope.items=Items.all();
     $scope.newPressure={};
     Items.save();
   };
+
   var xs=[];
   var ys=[];
   var dates=[];
@@ -39,6 +40,7 @@ ys.unshift(item.low);
 dates.unshift(item.date);
 
 });
+
 
 
 var trace1 = {
@@ -64,9 +66,9 @@ var layout1 = {
     showlegend: false
 };
 
-
+/*
 Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
-
+*/
 
 })
 
@@ -113,9 +115,9 @@ var layout1 = {
 };
 
 
-
+/*
 Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
-
+*/
 /*=====*/
 
 
