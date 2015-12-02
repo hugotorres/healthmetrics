@@ -11,9 +11,6 @@ angular.module('starter.controllers', [])
 
 */
 
-
-
-
 $scope.items=Items.all();
 
   $scope.remove = function(item) {
@@ -60,15 +57,15 @@ var trace2 = {
 var datosGrafica1=[{x:dates,y:ys,type:'bar',orientation: 'h'}];
 var datosGrafica2=[{x:dates,y:ys,type:'scatter',orientation: 'v'}];
 
-var datos=[trace1,trace2]
+var datos=[trace1,trace2];
 
 var layout1 = {
     showlegend: false
 };
 
-/*
+
 Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
-*/
+
 
 })
 
@@ -108,16 +105,16 @@ var trace1 = {
     orientation: 'v'
 };
 
-var datos=[trace1]
+var datos=[trace1];
 
 var layout1 = {
     showlegend: false
 };
 
 
-/*
+
 Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
-*/
+
 /*=====*/
 
 
@@ -148,14 +145,14 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
   var weights= Weights.all();
   var items = Items.all();
 
-  $scope.profile={weights,items};
+  $scope.profile=[weights,items];
   $scope.addProfile=function(){
       localStorage.setItem("perfil", JSON.stringify($scope.profile));
-  }
+  };
   $scope.borrarDatos= function(){
     alert('Are you sure? this cannot be undone!',Weights.clear());
     $state.go('tab.dash',null,{reload:true});
     $scope.items =[];
     $scope.weights =[];
-  }
+  };
 });
