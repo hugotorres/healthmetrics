@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.dailyidea280563" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Health metrics</name>
-  <icon src="img/icon_048.png"/>
+  <icon src="img/icon_072.png"/>
   <description>
 A simple  health tracking app, meassure your weight,blood pressure and more.
 </description>
@@ -10,6 +10,7 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
 </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <preference name="AutoHideSplashScreen" value="false" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
@@ -21,23 +22,23 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
   <platform name="android">
-    <icon src="img/icon_048.png" density="ldpi"/>
-    <icon src="img/icon_048.png" density="mdpi"/>
-    <icon src="img/icon_048.png" density="hdpi"/>
-    <icon src="img/icon_048.png" density="xhdpi"/>
-    <icon src="img/icon_048.png" density="xxhdpi"/>
-    <icon src="img/icon_048.png" density="xxxhdpi"/>
-    <splash src="img/icon_048.png" density="land-ldpi"/>
-    <splash src="img/icon_048.png" density="land-mdpi"/>
-    <splash src="img/icon_048.png" density="land-hdpi"/>
-    <splash src="img/icon_048.png" density="land-xhdpi"/>
-    <splash src="img/icon_048.png" density="land-xxhdpi"/>
-    <splash src="img/icon_048.png" density="land-xxxhdpi"/>
-    <splash src="img/icon_048.png" density="port-ldpi"/>
-    <splash src="img/icon_048.png" density="port-mdpi"/>
-    <splash src="img/icon_048.png" density="port-hdpi"/>
-    <splash src="img/icon_048.png" density="port-xhdpi"/>
-    <splash src="img/icon_048.png" density="port-xxhdpi"/>
-    <splash src="img/icon_048.png" density="port-xxxhdpi"/>
+    <icon src="img/icon_072.png" density="ldpi"/>
+    <icon src="img/icon_072.png" density="mdpi"/>
+    <icon src="img/icon_072.png" density="hdpi"/>
+    <icon src="img/icon_072.png" density="xhdpi"/>
+    <icon src="img/icon_072.png" density="xxhdpi"/>
+    <icon src="img/icon_072.png" density="xxxhdpi"/>
+    <splash src="img/icon_072.png" density="land-ldpi"/>
+    <splash src="img/icon_072.png" density="land-mdpi"/>
+    <splash src="img/icon_072.png" density="land-hdpi"/>
+    <splash src="img/icon_072.png" density="land-xhdpi"/>
+    <splash src="img/icon_072.png" density="land-xxhdpi"/>
+    <splash src="img/icon_072.png" density="land-xxxhdpi"/>
+    <splash src="img/icon_072.png" density="port-ldpi"/>
+    <splash src="img/icon_072.png" density="port-mdpi"/>
+    <splash src="img/icon_072.png" density="port-hdpi"/>
+    <splash src="img/icon_072.png" density="port-xhdpi"/>
+    <splash src="img/icon_072.png" density="port-xxhdpi"/>
+    <splash src="img/icon_072.png" density="port-xxxhdpi"/>
   </platform>
 </widget>
