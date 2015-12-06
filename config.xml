@@ -10,13 +10,13 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
 </author>
   <content src="index.html"/>
   <access origin="*"/>
+  <preference name="SplashScreen" value="img/icon_072.png" />
   <preference name="AutoHideSplashScreen" value="false" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
-  <preference name="SplashScreen" value="screen"/>
   <preference name="SplashScreenDelay" value="3000"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
