@@ -60,7 +60,17 @@ var datosGrafica2=[{x:dates,y:ys,type:'scatter',orientation: 'v'}];
 var datos=[trace1,trace2];
 
 var layout1 = {
-    showlegend: false
+    showlegend: false,
+    autosize: false,
+    width: 400,
+    height: 200,
+    margin: {
+      l: 10,
+      r: 10,
+      b: 10,
+      t: 10,
+      pad: 2
+    }
 };
 
 
@@ -108,7 +118,17 @@ var trace1 = {
 var datos=[trace1];
 
 var layout1 = {
-    showlegend: false
+    showlegend: false,
+    autosize: false,
+    width: 500,
+    height: 200,
+    margin: {
+      l: 10,
+      r: 10,
+      b: 10,
+      t: 10,
+      pad: 2
+    }
 };
 
 

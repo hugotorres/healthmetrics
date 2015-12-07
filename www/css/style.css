@@ -11,3 +11,5 @@ ion-item.item{padding:0px;}
 }
 .low{font-size:22px;}
 .weight{font-size:34px !important;}
+
+.item-divider i { position:absolute; right:10px; }
