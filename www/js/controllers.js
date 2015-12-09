@@ -159,6 +159,7 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
 
 .controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights,Items) {
   $scope.dataErased=localStorage.getItem("items")?false:true;
+  $scope.nuevoPerfil= false;
   $scope.settings = {
     enableFriends: true
   };

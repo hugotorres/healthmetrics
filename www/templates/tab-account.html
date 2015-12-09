@@ -1,25 +1,40 @@
 <ion-view view-title="Account">
   <ion-content>
       <div class="item item-text-wrap" >
+      <div class="card">
+        <div class="item item-divider">
+          <h2>Profiles</h2>
+        </div>
+
+
+
+     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne">
+      Add Profile <i class="ion-android-add-circle"></i>
+    </div>
+
+    <div class="item item-text-wrap" ng-if="addOne">
       <div >
-      	<h1>profile info</h1>
-        <label class="item item-input ">
-          <span class="input-label">Age</span>
-          <input type="number"  max="999" name="high" ng-model="profile.age">
-        </label>
         <label class="item item-input ">
           <span class="input-label">Name</span>
-          <input type="text"   name="nombre" ng-model="profile.name">
-        </label>
 
-        <button class="button button-small button-full button-positive" ng-class="{'disabled':!profile.name || !profile.age}" ng-click="addProfile()">
-          Save Profile
-        </button>
+          <input type="text" placeholder="120"  name="name" ng-model="profile.name">
+        </label>
+        <label class="item item-input ">
+          <span class="input-label">Age</span>
+          <input type="number" placeholder="80"  max="99" name="age" ng-model="profile.age">
+        </label>
+        <div ng-click="nuevo=false;">
+           <button class="button button-small button-full button-positive" ng-class="{'disabled':!profile.name || !profile.age}" ng-click="addProfile()">
+                  Save Profile
+            </button>
+        <div>
+      </div>
+    </div>
 
       </div>
     </div>
     <ion-list>
-
+<hr>
 <button class="button button-full" ng-click="borrarDatos()"
 ng-class="{'button-calm':dataErased,'button-assertive':!dataErased}">
   Reset data
