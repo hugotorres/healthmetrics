@@ -11,23 +11,14 @@ angular.module('starter.controllers', [])
 
 */
 
+
+
+
 $scope.items=Items.all();
 
-  $scope.remove = function(item) {
-    Items.remove(item);
-  };
 
-  $scope.newPressure={};
-  $scope.addOne=false;
 
-  $scope.addPressure=function(){
-    var fecha= new Date();
-    Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fecha.toDateString()});
-    $scope.newPressure={};
-    Items.save();
-  };
-
-  var xs=[];
+    var xs=[];
   var ys=[];
   var dates=[];
   var datosGrafica= [];
@@ -75,6 +66,27 @@ var layout1 = {
 
 
 Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
+
+
+  $scope.remove = function(item) {
+    Items.remove(item);
+  };
+
+  $scope.newPressure={};
+  $scope.addOne=false;
+
+  $scope.addPressure=function(){
+    var fecha= new Date();
+    Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fecha.toDateString()});
+    $scope.newPressure={};
+    Items.save();
+    pressure.data[0].opacity = 0.2;
+    console.log(pressure);
+    Plotly.redraw(pressure);
+  };
+
+
+
 
 
 })
@@ -148,6 +160,7 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
     Weights.add({'kgs':$scope.newWeight.kgs,'date':fecha.toDateString()});
     $scope.newWeight={};
     Weights.save();
+      Plotly.redraw(weightGraph);
   };
 })
 
