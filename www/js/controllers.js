@@ -10,26 +10,18 @@ angular.module('starter.controllers', [])
   function applyRemoteData(newitems){$scope.items = newitems.results};
 
 */
-
-
-
-
-$scope.items=Items.all();
-
-
-
-    var xs=[];
+  var xs=[];
   var ys=[];
   var dates=[];
   var datosGrafica= [];
+
+$scope.items=Items.all();
+
 $scope.items.forEach(function(item){
-xs.unshift(item.high);
-ys.unshift(item.low);
-dates.unshift(item.date);
-
+  xs.unshift(item.high);
+  ys.unshift(item.low);
+  dates.unshift(item.date);
 });
-
-
 
 var trace1 = {
     x:dates,
@@ -37,7 +29,6 @@ var trace1 = {
     type: 'scatter',
     orientation: 'v'
 };
-
 var trace2 = {
     x:dates,
     y: ys,
@@ -45,8 +36,8 @@ var trace2 = {
     orientation: 'v'
 };
 
-var datosGrafica1=[{x:dates,y:ys,type:'bar',orientation: 'h'}];
-var datosGrafica2=[{x:dates,y:ys,type:'scatter',orientation: 'v'}];
+//var datosGrafica1=[{x:dates,y:ys,type:'bar',orientation: 'h'}];
+//var datosGrafica2=[{x:dates,y:ys,type:'scatter',orientation: 'v'}];
 
 var datos=[trace1,trace2];
 
@@ -67,7 +58,6 @@ var layout1 = {
 
 Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
 
-
   $scope.remove = function(item) {
     Items.remove(item);
   };
@@ -82,6 +72,7 @@ Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
     Items.save();
     pressure.data[0].opacity = 0.2;
     console.log(pressure);
+    Plotly.addTraces(pressure, {x: [1, 2, 3, 4],y: [12, 3, 14, 4]});
     Plotly.redraw(pressure);
   };
 
