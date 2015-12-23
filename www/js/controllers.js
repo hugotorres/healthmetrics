@@ -68,12 +68,13 @@ Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
   $scope.addPressure=function(){
     var fecha= new Date();
     Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fecha.toDateString()});
-    $scope.newPressure={};
+
     Items.save();
-    pressure.data[0].opacity = 0.2;
-    console.log(pressure);
-    Plotly.addTraces(pressure, {x: [1, 2, 3, 4],y: [12, 3, 14, 4]});
+   // pressure.data[0].opacity = 0.2;
+    console.log($scope.newPressure.low,$scope.newPressure.high);
+    Plotly.addTraces(pressure, {x: [$scope.newPressure.low],y: [$scope.newPressure.high]});
     Plotly.redraw(pressure);
+     $scope.newPressure={};
   };
 
 
