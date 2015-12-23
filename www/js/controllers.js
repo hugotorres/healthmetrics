@@ -72,7 +72,8 @@ Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
     Items.save();
    // pressure.data[0].opacity = 0.2;
     console.log($scope.newPressure.low,$scope.newPressure.high);
-    Plotly.addTraces(pressure, {x: [$scope.newPressure.low],y: [$scope.newPressure.high]});
+    Plotly.addTraces(pressure, {x: [fecha.toDateString()],y: [$scope.newPressure.low]});
+    Plotly.addTraces(pressure, {x: [fecha.toDateString()],y: [$scope.newPressure.high]});
     Plotly.redraw(pressure);
      $scope.newPressure={};
   };
@@ -150,9 +151,11 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
     $scope.addWeight=function(){
     var fecha= new Date();
     Weights.add({'kgs':$scope.newWeight.kgs,'date':fecha.toDateString()});
-    $scope.newWeight={};
+
     Weights.save();
-      Plotly.redraw(weightGraph);
+    Plotly.addTraces(weightGraph, {x: [fecha.toDateString()],y: [$scope.newWeight.kgs]});
+    Plotly.redraw(weightGraph);
+    $scope.newWeight={};
   };
 })
 
