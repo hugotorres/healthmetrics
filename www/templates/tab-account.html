@@ -4,30 +4,45 @@
       <div class="card">
         <div class="item item-divider">
           <h2>Profiles</h2>
-          {{profile}}
+        </div>
+
+        <div class="list" ng-repeat="perfil in perfiles">
+
+							{{perfil.name}} /-->{{perfil.age}}
+
         </div>
 
 
 
-     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne">
+     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
       Add Profile <i class="ion-android-add-circle"></i>
     </div>
-    <div class="item item-text-wrap" ng-if="addOne">
+    <div class="item item-text-wrap perfilnuevo" ng-if="addOne">
       <div >
-        <label class="item item-input ">
-          <span class="input-label">Name</span>
 
-          <input type="text"   name="name" ng-model="profile.name">
-        </label>
-        <label class="item item-input ">
-          <span class="input-label">Age</span>
-          <input type="number" max="99" name="age" ng-model="profile.age">
-        </label>
+        <div class="row">
+          <div class="col col-75">
+            <label class="item item-input ">
+                <span class="input-label">Name</span>
+                <input type="text"   name="name" ng-model="profile.name">
+              </label>
+          </div>
+          <div class="col">
+          	  <label class="item item-input ">
+                <span class="input-label">Age</span>
+                <input type="number" max="99" name="age" ng-model="profile.age">
+              </label>
+          </div>
+        </div>
+
+
+
         <div ng-click="nuevo=false;">
            <button class="button button-small button-full button-positive" ng-class="{'disabled':!profile.name || !profile.age}" ng-click="addProfile()">
                   Save Profile
             </button>
         <div>
+
       </div>
     </div>
 

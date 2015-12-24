@@ -3,32 +3,68 @@
 
 <ion-view view-title="Health metrics pressure">
   <ion-content class="padding">
-
-
-    <div ng-if="!items">
+    <div ng-if="!profile">
       <div>
-        <h3>CLICK ADD PRESSURE!</h3>
+        <h3>Lets Begin!
+        </h3>
+        <p> Please provide a little info.</p>
+ 				<div class="row">
+          <div class="col col-75">
+            <label class="item item-input ">
+                <span class="input-label">Name</span>
+                <input type="text"   name="name" ng-model="newProfile.name">
+              </label>
+          </div>
+          <div class="col">
+          	  <label class="item item-input ">
+                <span class="input-label">Age</span>
+                <input type="number" max="99" name="age" ng-model="newProfile.age">
+              </label>
+          </div>
+        </div>
+        <div class="row">
+           <div class="col">
+                <label class="item item-input ">
+                  <span class="input-label">Initial weight</span>
+                  <input type="number" max="99" name="age" ng-model="newProfile.weight">
+                   <input type="hidden" name="date" ng-model="newProfile.initialDate" value="new Date()">
+                </label>
+            </div>
+        </div>
+ 						<button class="button button-small button-full button-positive" ng-class="{'disabled':!newProfile.name || !newProfile.age}" ng-click="newPerfil()">
+                  Save Profile and start
+            </button>
       </div>
+     </div>
+      <div id="pressure" style="max-height:400px;margin:0 auto;"   ng-show="profile">
+
       </div>
 
-      <div id="pressure" style="max-height:400px;margin:0 auto;"></div>
-
-  <div class=""  id="nuevaPresion">
-    <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne">
+  <div class=""  id="nuevaPresion" ng-if="profile">
+    <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
       Add Pressure <i class="ion-android-add-circle"></i>
     </div>
 
     <div class="item item-text-wrap" ng-if="addOne">
       <div >
-        <label class="item item-input ">
-          <span class="input-label">High</span>
 
-          <input type="number" placeholder="120" max="999" name="high" ng-model="newPressure.high">
-        </label>
-        <label class="item item-input ">
-          <span class="input-label">Low</span>
-          <input type="number" placeholder="80"  max="999" name="low" ng-model="newPressure.low">
-        </label>
+          <div class="row">
+            <div class="col col-50">
+              <label class="item item-input ">
+                <span class="input-label"><i class="icon ion-arrow-up-c"></i>High</span>
+                <input type="number" placeholder="120" max="999" name="high" ng-model="newPressure.high">
+              </label>
+             </div>
+
+            <div class="col">
+              <label class="item item-input ">
+                <span class="input-label"><i class="icon ion-arrow-down-c"></i>Low</span>
+                <input type="number" placeholder="80"  max="999" name="low" ng-model="newPressure.low">
+              </label>
+            </div>
+        </div>
+
+
         <div ng-click="nuevo=false;">
         <button class="button button-small button-full button-positive" ng-class="{'disabled':!newPressure.high || !newPressure.low}" ng-click="addPressure()">
           Save Pressure

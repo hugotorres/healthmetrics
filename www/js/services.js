@@ -88,4 +88,71 @@ var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("w
       return null;
     }
   };
+})
+
+.factory('Notes', function() {
+  // Might use a resource here that returns a JSON array
+var notes = localStorage.getItem("profiles")?JSON.parse(localStorage.getItem("weights")):[];
+  return {
+    all: function() {
+      return weights;
+    },
+    save:function(){
+      localStorage.setItem("weights", JSON.stringify(weights));
+    },
+    clear:function(){
+      localStorage.clear();
+      console.log('borrando datos');
+      weights=[];
+    }
+    ,
+     add:function(weight){
+      weights.unshift(weight);
+    },
+    remove: function(weights) {
+      weights.splice(weights.indexOf(weights), 1);
+    },
+    get: function(weightId) {
+      for (var i = 0; i < weights.length; i++) {
+        if (weights[i].id === parseInt(weightId)) {
+          return weights[i];
+        }
+      }
+      return null;
+    }
+  };
+})
+.factory('Perfiles', function() {
+  // Might use a resource here that returns a JSON array
+  var pf= localStorage.getItem("perfiles");
+  var perfiles = pf?JSON.parse(pf):[];
+  return {
+    all: function() {
+      return perfiles;
+    },
+    save:function(){
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
+    clear:function(){
+      localStorage.clear();
+      console.log('borrando datos');
+      weights=[];
+    },
+     add:function(perfil){
+      perfiles.unshift(perfil);
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
+    remove: function(weights) {
+      weights.splice(weights.indexOf(weights), 1);
+    },
+    get: function(weightId) {
+      for (var i = 0; i < weights.length; i++) {
+        if (weights[i].id === parseInt(weightId)) {
+          return weights[i];
+        }
+      }
+      return null;
+    }
+  };
 });
+

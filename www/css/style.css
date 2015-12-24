@@ -13,3 +13,25 @@ ion-item.item{padding:0px;}
 .weight{font-size:34px !important;}
 
 .item-divider i { position:absolute; right:10px; }
+
+
+.svg-container {
+    margin: 0px auto !important;
+}
+.item-content {
+    padding: 10px !important;
+      background: #fdfdfd !important;
+    text-align: center;
+}
+.item.item-body {
+    padding: 5px !important;
+}
+.item.item-divider{
+    text-align: right;
+    font-size: 18px;
+    padding: 6px;
+}
+.perfilnuevo input {
+  border: thin dotted #e4e4e4;
+}
+.item{padding:6px;}

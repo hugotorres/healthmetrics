@@ -1,10 +1,10 @@
-<ion-view view-title="Health Metrics-Weight">
+<ion-view view-title="Health Metrics-Notes">
   <ion-content>
 
   <div id="weightGraph" style="max-width:400px;max-height:400px;margin:0 auto;"></div>
 
-    <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
-      New Weight <i class="ion-android-add-circle"></i>
+    <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne">
+      New Note <i class="ion-android-add-circle"></i>
     </div>
     <div class="item item-text-wrap" ng-if="addOne">
       <div >
@@ -16,7 +16,7 @@
         <div ng-click="nuevo=false;">
         <button class="button button-small button-full button-positive"
         ng-class="{'disabled':!newWeight.kgs }" ng-click="addWeight()">
-          Save Weight
+          Save Note
         </button>
         <div>
       </div>
@@ -32,7 +32,7 @@
       <div class="item item-body" >
         <div>
            <ion-item class="item-remove-animate  item-icon-right" type="item-text-wrap" href="#/tab/chats/{{weight.id}}">
-        <p class="weight">{{weight.kgs}} Kgs</p>
+        <p class="weight">{{weight.kgs}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
         <ion-option-button class="button-assertive" ng-click="remove(weight)">
           Delete

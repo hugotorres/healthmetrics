@@ -5,15 +5,20 @@ navigation history that also transitions its views in and out.
 -->
 <ion-tabs class=" tabs-bottom tabs-background-positive tabs-color-light tabs-icon-top">
 
-  <!-- Dashboard Tab -->
+  <!-- Pressure Tab -->
   <ion-tab title="Pressure" icon-off="ion-heart-broken" icon-on="ion-ios-heart" href="#/tab/dash" onclick="$window.location.reload(true)">
     <ion-nav-view name="tab-dash">
   </ion-nav-view>
   </ion-tab>
 
-  <!-- Chats Tab -->
+  <!-- Weight Tab -->
   <ion-tab title="Weight" data-pack="default" icon-off="ion-happy" icon-on="ion-happy-outline" href="#/tab/chats">
     <ion-nav-view name="tab-chats"></ion-nav-view>
+  </ion-tab>
+
+    <!-- Notes Tab -->
+  <ion-tab title="Notes" data-pack="default" icon-off="ion-clipboard" icon-on="ion-clipboard-outline" href="#/tab/notes">
+    <ion-nav-view name="tab-notes"></ion-nav-view>
   </ion-tab>
 
   <!-- Account Tab -->

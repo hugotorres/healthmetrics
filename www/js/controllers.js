@@ -1,28 +1,33 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,Items) {
+.controller('DashCtrl', function($scope,Items,Perfiles) {
 /*
   loadRemoteData();
   function loadRemoteData(){
-
     Items.all().then(function(items){applyRemoteData(items)});
   };
   function applyRemoteData(newitems){$scope.items = newitems.results};
-
 */
   var xs=[];
   var ys=[];
   var dates=[];
   var datosGrafica= [];
+  $scope.perfiles= Perfiles.all();
+  $scope.profile=$scope.perfiles[0];
+  $scope.newProfile= $scope.perfiles.lenght?$scope.perfiles[0]:{};
 
+$scope.newPerfil=function(){
+  Perfiles.add($scope.newProfile);
+  Perfiles.save();
+  $scope.perfiles= Perfiles.all();
+  $scope.profile=$scope.perfiles[0];
+};
 $scope.items=Items.all();
-
 $scope.items.forEach(function(item){
   xs.unshift(item.high);
   ys.unshift(item.low);
   dates.unshift(item.date);
 });
-
 var trace1 = {
     x:dates,
     y: xs,
@@ -35,28 +40,22 @@ var trace2 = {
     type: 'scatter',
     orientation: 'v'
 };
-
-//var datosGrafica1=[{x:dates,y:ys,type:'bar',orientation: 'h'}];
-//var datosGrafica2=[{x:dates,y:ys,type:'scatter',orientation: 'v'}];
-
 var datos=[trace1,trace2];
-
 var layout1 = {
     showlegend: false,
-    autosize: false,
-    width: 400,
+    autosize: true,
+    width: 450,
     height: 200,
     margin: {
-      l: 10,
-      r: 10,
-      b: 10,
-      t: 10,
+      l: 30,
+      r: 30,
+      b: 20,
+      t: 20,
       pad: 2
     }
 };
 
-
-Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
+  Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
 
   $scope.remove = function(item) {
     Items.remove(item);
@@ -67,20 +66,16 @@ Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
 
   $scope.addPressure=function(){
     var fecha= new Date();
-    Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fecha.toDateString()});
+    var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
+    Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
 
     Items.save();
    // pressure.data[0].opacity = 0.2;
-    console.log($scope.newPressure.low,$scope.newPressure.high);
-    Plotly.addTraces(pressure, {x: [fecha.toDateString()],y: [$scope.newPressure.low]});
-    Plotly.addTraces(pressure, {x: [fecha.toDateString()],y: [$scope.newPressure.high]});
+    Plotly.addTraces(pressure, {x: [fechaFormateada],y: [$scope.newPressure.low]});
+    Plotly.addTraces(pressure, {x: [fechaFormateada],y: [$scope.newPressure.high]});
     Plotly.redraw(pressure);
-     $scope.newPressure={};
+    $scope.newPressure={};
   };
-
-
-
-
 
 })
 
@@ -94,11 +89,8 @@ Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
    // console.log(e);
   });
     $scope.addOne=false;
-     $scope.newWeight={};
-  $scope.weights = Weights.all();
-
-
-
+    $scope.newWeight={};
+    $scope.weights = Weights.all();
 /*=======*/
 
   var xs=[];
@@ -109,53 +101,64 @@ Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
 $scope.weights.forEach(function(weight){
 xs.unshift(weight.kgs);
 dates.unshift(weight.date);
-
 });
-
-
 var trace1 = {
     x:dates,
     y: xs,
     type: 'scatter',
     orientation: 'v'
 };
-
 var datos=[trace1];
-
 var layout1 = {
     showlegend: false,
-    autosize: false,
-    width: 500,
+    autosize: true,
+    width: 450,
     height: 200,
     margin: {
-      l: 10,
-      r: 10,
-      b: 10,
-      t: 10,
+      l: 30,
+      r: 30,
+      b: 20,
+      t: 20,
       pad: 2
     }
 };
 
-
-
 Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
-
 /*=====*/
-
-
-
-
   $scope.remove = function(weight) {
     Weights.remove(weight);
   };
     $scope.addWeight=function(){
     var fecha= new Date();
-    Weights.add({'kgs':$scope.newWeight.kgs,'date':fecha.toDateString()});
-
+    var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
+    Weights.add({'kgs':$scope.newWeight.kgs,'date':fechaFormateada});
     Weights.save();
-    Plotly.addTraces(weightGraph, {x: [fecha.toDateString()],y: [$scope.newWeight.kgs]});
+    Plotly.addTraces(weightGraph, {x: [fechaFormateada],y: [$scope.newWeight.kgs]});
     Plotly.redraw(weightGraph);
     $scope.newWeight={};
+  };
+})
+
+
+
+.controller('NotesCtrl', function($scope, Notes) {
+  // With the new view caching in Ionic, Controllers are only called
+  // when they are recreated or on app start, instead of every page change.
+  // To listen for when this page is active (for example, to refresh data),
+  // listen for the $ionicView.enter event:
+  //
+    $scope.addOne=false;
+    $scope.newNotet={};
+    $scope.notes = Notes.all();
+    $scope.remove = function(note) {
+    Notes.remove(note);
+  };
+    $scope.addNote=function(){
+        var fecha= new Date();
+        var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
+        Notes.add({'note':$scope.newNote.txt,'date':fechaFormateada});
+        Notes.save();
+        $scope.newNote={};
   };
 })
 
@@ -163,20 +166,23 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
   $scope.weight = Weights.get($stateParams.weightId);
 })
 
-
-
-.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights,Items) {
+.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights,Items,Perfiles) {
   $scope.dataErased=localStorage.getItem("items")?false:true;
   $scope.nuevoPerfil= false;
   $scope.settings = {
     enableFriends: true
   };
+
+
+
   var weights= Weights.all();
   var items = Items.all();
+  var perfiles = Perfiles.all();
 
   $scope.profile=[weights,items];
   $scope.addProfile=function(){
       localStorage.setItem("perfil", JSON.stringify($scope.profile));
+
   };
   $scope.borrarDatos= function(){
     alert('Are you sure? this cannot be undone!',Weights.clear());
