@@ -95,33 +95,34 @@ var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("w
 var notes = localStorage.getItem("profiles")?JSON.parse(localStorage.getItem("weights")):[];
   return {
     all: function() {
-      return weights;
+      return notes;
     },
     save:function(){
-      localStorage.setItem("weights", JSON.stringify(weights));
+      localStorage.setItem("weights", JSON.stringify(notes));
     },
     clear:function(){
       localStorage.clear();
       console.log('borrando datos');
-      weights=[];
+      notes=[];
     }
     ,
-     add:function(weight){
-      weights.unshift(weight);
+     add:function(note){
+      notes.unshift(note);
     },
-    remove: function(weights) {
-      weights.splice(weights.indexOf(weights), 1);
+    remove: function(notes) {
+      notes.splice(notes.indexOf(notes), 1);
     },
-    get: function(weightId) {
-      for (var i = 0; i < weights.length; i++) {
-        if (weights[i].id === parseInt(weightId)) {
-          return weights[i];
+    get: function(notes) {
+      for (var i = 0; i < notes.length; i++) {
+        if (notes[i].id === parseInt(weightId)) {
+          return notes[i];
         }
       }
       return null;
     }
   };
 })
+
 .factory('Perfiles', function() {
   // Might use a resource here that returns a JSON array
   var pf= localStorage.getItem("perfiles");
@@ -142,8 +143,8 @@ var notes = localStorage.getItem("profiles")?JSON.parse(localStorage.getItem("we
       perfiles.unshift(perfil);
       localStorage.setItem("perfiles", JSON.stringify(perfiles));
     },
-    remove: function(weights) {
-      weights.splice(weights.indexOf(weights), 1);
+    remove: function(perfiles) {
+      perfiles.splice(perfiles.indexOf(perfiles), 1);
     },
     get: function(weightId) {
       for (var i = 0; i < weights.length; i++) {

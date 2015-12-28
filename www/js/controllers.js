@@ -22,6 +22,7 @@ $scope.newPerfil=function(){
   $scope.perfiles= Perfiles.all();
   $scope.profile=$scope.perfiles[0];
 };
+
 $scope.items=Items.all();
 $scope.items.forEach(function(item){
   xs.unshift(item.high);
