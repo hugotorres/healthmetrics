@@ -112,9 +112,9 @@ var notes = localStorage.getItem("profiles")?JSON.parse(localStorage.getItem("we
     remove: function(notes) {
       notes.splice(notes.indexOf(notes), 1);
     },
-    get: function(notes) {
+    get: function(noteId) {
       for (var i = 0; i < notes.length; i++) {
-        if (notes[i].id === parseInt(weightId)) {
+        if (notes[i].id === parseInt(noteId)) {
           return notes[i];
         }
       }

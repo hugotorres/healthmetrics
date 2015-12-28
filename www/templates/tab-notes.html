@@ -1,52 +1,41 @@
 <ion-view view-title="Health Metrics-Notes">
   <ion-content>
-
   <div id="weightGraph" style="max-width:400px;max-height:400px;margin:0 auto;"></div>
-
-    <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne">
+    <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left;">
       New Note <i class="ion-android-add-circle"></i>
     </div>
     <div class="item item-text-wrap" ng-if="addOne">
       <div >
         <label class="item item-input ">
-          <span class="input-label">Weight</span>
-          <input type="number" placeholder="120" max="999" name="kgs" ng-model="newWeight.kgs">
+          <span class="input-label">Note</span>
+          <textarea name="note" ng-model="newNote.txt" rows="5" cols="30" style="border:thin solid lightgrey;max-width:240px;"></textarea>
         </label>
-
         <div ng-click="nuevo=false;">
         <button class="button button-small button-full button-positive"
-        ng-class="{'disabled':!newWeight.kgs }" ng-click="addWeight()">
+        ng-class="{'disabled':!newNote.txt }" ng-click="addNote()">
           Save Note
         </button>
         <div>
       </div>
     </div>
-
   </div>
 </div>
 
-
-<div ng-repeat="weight in weights track by $index">
-   <div class="card"  href="#/tab/chats/{{weight.id}}">
-      <div class="item item-divider">{{weight.date}}</div>
+<div ng-repeat="note in notes track by $index">
+   <div class="card"  href="#/tab/notes/{{note.id}}">
+      <div class="item item-divider">{{note.date}}</div>
       <div class="item item-body" >
         <div>
-           <ion-item class="item-remove-animate  item-icon-right" type="item-text-wrap" href="#/tab/chats/{{weight.id}}">
-        <p class="weight">{{weight.kgs}}</p>
+           <ion-item class="item-remove-animate  item-icon-right" type="item-text-wrap" href="#/tab/notes/{{note.id}}">
+        <p class="weight">{{note.note}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-        <ion-option-button class="button-assertive" ng-click="remove(weight)">
+        <ion-option-button class="button-assertive" ng-click="remove(note)">
           Delete
         </ion-option-button>
       </ion-item>
-
-
         </div>
       </div>
     </div>
 </div>
-
-
-
-
   </ion-content>
 </ion-view>

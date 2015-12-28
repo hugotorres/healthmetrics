@@ -50,6 +50,15 @@ angular.module('starter', ['ionic','starter.controllers', 'starter.services'])
       }
     }
   })
+    .state('initial', {
+    url: '/initial',
+    views: {
+      'initial': {
+        templateUrl: 'templates/initial.html',
+        controller: 'InitialCtrl'
+      }
+    }
+  })
   .state('tab.notes', {
       url: '/notes',
       views: {
@@ -68,6 +77,15 @@ angular.module('starter', ['ionic','starter.controllers', 'starter.services'])
         }
       }
     })
+      .state('tab.note-detail', {
+      url: '/notes/:noteId',
+      views: {
+        'tab-notes': {
+          templateUrl: 'templates/note-detail.html',
+          controller: 'NoteDetailCtrl'
+        }
+      }
+    }
     .state('tab.chat-detail', {
       url: '/chats/:weightId',
       views: {

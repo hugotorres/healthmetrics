@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,Items,Perfiles) {
+.controller('DashCtrl', function($scope,Items,Perfiles,$state) {
 /*
   loadRemoteData();
   function loadRemoteData(){
@@ -8,6 +8,14 @@ angular.module('starter.controllers', [])
   };
   function applyRemoteData(newitems){$scope.items = newitems.results};
 */
+var perfs = Perfiles.all();
+if(!perfs.length){
+  console.log('nohay perilesaun');
+  $state.go('initial');
+
+
+}
+      console.log($state.current);
   var xs=[];
   var ys=[];
   var dates=[];
@@ -86,9 +94,7 @@ var layout1 = {
   // To listen for when this page is active (for example, to refresh data),
   // listen for the $ionicView.enter event:
   //
-  $scope.$on('$ionicView.enter', function(e) {
-   // console.log(e);
-  });
+
     $scope.addOne=false;
     $scope.newWeight={};
     $scope.weights = Weights.all();
@@ -99,9 +105,9 @@ var layout1 = {
   var dates=[];
   var datosGrafica= [];
   console.log($scope.weights);
-$scope.weights.forEach(function(weight){
-xs.unshift(weight.kgs);
-dates.unshift(weight.date);
+  $scope.weights.forEach(function(weight){
+  xs.unshift(weight.kgs);
+  dates.unshift(weight.date);
 });
 var trace1 = {
     x:dates,
@@ -149,7 +155,7 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
   // listen for the $ionicView.enter event:
   //
     $scope.addOne=false;
-    $scope.newNotet={};
+    $scope.newNote={};
     $scope.notes = Notes.all();
     $scope.remove = function(note) {
     Notes.remove(note);
@@ -162,7 +168,21 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
         $scope.newNote={};
   };
 })
+.controller('InitialCtrl', function($scope,Perfiles,$state) {
+  // With the new view caching in Ionic, Controllers are only called
+  // when they are recreated or on app start, instead of every page change.
+  // To listen for when this page is active (for example, to refresh data),
+  // listen for the $ionicView.enter event:
+  //
+  console.log(Perfiles.all());
+  console.log($state.current);
 
+})
+
+
+.controller('NoteDetailCtrl', function($scope, $stateParams, Notes) {
+  $scope.note = Notes.get($stateParams.noteId);
+})
 .controller('ChatDetailCtrl', function($scope, $stateParams, Weights) {
   $scope.weight = Weights.get($stateParams.weightId);
 })
