@@ -14,18 +14,18 @@
         </h3>
         <p> Please provide a little info.</p>
         </div>
-
+{{newprofile}}
  				<div class="row">
           <div class="col col-75">
             <label class="item item-input ">
                 <span class="input-label">Name</span>
-                <input type="text"   name="name" ng-model="newProfile.name">
+                <input type="text"   name="name" ng-model="newprofile.name">
               </label>
           </div>
           <div class="col">
           	  <label class="item item-input ">
                 <span class="input-label">Age</span>
-                <input type="number" max="99" name="age" ng-model="newProfile.age">
+                <input type="number" max="99" name="age" ng-model="newprofile.age">
               </label>
           </div>
         </div>
@@ -33,12 +33,12 @@
            <div class="col">
                 <label class="item item-input ">
                   <span class="input-label">Initial weight</span>
-                  <input type="number" max="99" name="age" ng-model="newProfile.weight">
-                   <input type="hidden" name="date" ng-model="newProfile.initialDate" value="new Date()">
+                  <input type="number" max="99" name="age" ng-model="newprofile.weight">
+                   <input type="hidden" name="date" ng-model="newprofile.initialDate" value="new Date()">
                 </label>
             </div>
         </div>
- 						<button class="button button-small button-full button-positive" ng-class="{'disabled':!newProfile.name || !newProfile.age}" ng-click="newPerfil()">
+ 						<button class="button button-small button-full button-positive" ng-class="{'disabled':!newprofile.name || !newprofile.age}" ng-click="newPerfil()">
                   Save Profile and start
             </button>
       </div>

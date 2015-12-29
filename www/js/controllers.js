@@ -14,6 +14,7 @@ if(!perfs.length){
   $state.go('initial');
 }
 */
+  $scope.newprofile={};
   $scope.newPressure={};
   $scope.addOne=false;
   var xs=[];
@@ -22,11 +23,15 @@ if(!perfs.length){
   var datosGrafica= [];
   $scope.perfiles= Perfiles.all();
   $scope.profile=$scope.perfiles[0];
+  $scope.items = $scope.profile.items?$scope.profile.items:[];//inincializacion de items como arregloen caso de que aun no exista
+  $scope.newPerfil=function(){
+      $scope.profile= $scope.newprofile;
+      Perfiles.add($scope.profile);
+    //$scope.perfiles[0] = $scope.profile;
+      Perfiles.save();
+  };
 
-$scope.newPerfil=function(){
-  Perfiles.save();
-};
-$scope.items = $scope.profile.items;
+
 $scope.items.forEach(function(item){
   xs.unshift(item.high);
   ys.unshift(item.low);
@@ -58,7 +63,6 @@ var layout1 = {
       pad: 2
     }
 };
-
   Plotly.newPlot('pressure', datos,layout1, {staticPlot: true});
 
   $scope.remove = function(item) {
@@ -67,9 +71,8 @@ var layout1 = {
   $scope.addPressure=function(){
     var fecha= new Date();
     var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
-
-    $scope.items.unshift({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
-    console.log($scope.items);
+    $scope.profile.items= $scope.profile.items?$scope.profile.items:[];
+    $scope.profile.items.unshift({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
     Perfiles.save();
    // Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
    //Items.save();
@@ -79,11 +82,12 @@ var layout1 = {
 
     Plotly.redraw(pressure);
     $scope.newPressure={};
+    $scope.items=Perfiles[0].items;
   };
 
 })
 
-.controller('ChatsCtrl', function($scope, Weights) {
+.controller('ChatsCtrl', function($scope, Weights,Perfiles) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -92,7 +96,7 @@ var layout1 = {
 
     $scope.addOne=false;
     $scope.newWeight={};
-    $scope.weights = Weights.all();
+    $scope.weights = Perfiles.getWeights();
 /*=======*/
 
   var xs=[];
@@ -130,13 +134,16 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
     Weights.remove(weight);
   };
     $scope.addWeight=function(){
+    var newWeight = {'kgs':$scope.newWeight.kgs,'date':fechaFormateada};
     var fecha= new Date();
     var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
-    Weights.add({'kgs':$scope.newWeight.kgs,'date':fechaFormateada});
-    Weights.save();
+    Perfiles.addWeight(newWeight);
+   // Weights.add({'kgs':$scope.newWeight.kgs,'date':fechaFormateada});
+   // Weights.save();
     Plotly.addTraces(weightGraph, {x: [fechaFormateada],y: [$scope.newWeight.kgs]});
     Plotly.redraw(weightGraph);
     $scope.newWeight={};
+    
   };
 })
 
