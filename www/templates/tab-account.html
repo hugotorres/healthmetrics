@@ -5,10 +5,10 @@
         <div class="item item-divider">
           <h2>Profiles</h2>
         </div>
-{{perfiles}}
-        <div class="list" ng-repeat="perfil in perfiles">
 
-							{{perfil.name}} /-->{{perfil.age}}
+        <div class="list perfiles" ng-repeat="perfil in perfiles">
+
+					<span>{{perfil.name}}  </span>		<span>{{perfil.age}} </span>  <span>{{perfil.weight}}</span>
 
         </div>
 
@@ -19,7 +19,7 @@
     </div>
     <div class="item item-text-wrap perfilnuevo" ng-if="addOne">
       <div >
-
+{{profile}}
         <div class="row">
           <div class="col col-75">
             <label class="item item-input ">

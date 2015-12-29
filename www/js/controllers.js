@@ -14,13 +14,14 @@ if(!perfs.length){
   $state.go('initial');
 }
 */
+  var emptyUser={'items':null,'weights':null,'notes':null,'name':null,'age':null};
   var xs=[];
   var ys=[];
   var dates=[];
   var datosGrafica= [];
   $scope.perfiles= Perfiles.all();
   $scope.profile=$scope.perfiles[0];
-  $scope.newProfile= $scope.perfiles.lenght?$scope.perfiles[0]:{};
+  $scope.newProfile= $scope.perfiles.lenght?$scope.perfiles[0]:emptyUser;
 
 $scope.newPerfil=function(){
   Perfiles.add($scope.newProfile);
@@ -28,8 +29,8 @@ $scope.newPerfil=function(){
   $scope.perfiles= Perfiles.all();
   $scope.profile=$scope.perfiles[0];
 };
-
-$scope.items=Items.all();
+$scope.items = $scope.profile.items;
+/*scope.items=Items.all();*/
 $scope.items.forEach(function(item){
   xs.unshift(item.high);
   ys.unshift(item.low);
@@ -74,8 +75,11 @@ var layout1 = {
   $scope.addPressure=function(){
     var fecha= new Date();
     var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
-    Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
-    Items.save();
+    console.log('breakpoint');
+     $scope.items.unshift({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
+    Perfiles.save();
+   // Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
+   //Items.save();
    // pressure.data[0].opacity = 0.2;
     Plotly.addTraces(pressure, {x: [fechaFormateada],y: [$scope.newPressure.low]});
     Plotly.addTraces(pressure, {x: [fechaFormateada],y: [$scope.newPressure.high]});
@@ -102,30 +106,29 @@ var layout1 = {
   var ys=[];
   var dates=[];
   var datosGrafica= [];
-  console.log($scope.weights);
   $scope.weights.forEach(function(weight){
   xs.unshift(weight.kgs);
   dates.unshift(weight.date);
-});
-var trace1 = {
-    x:dates,
-    y: xs,
-    type: 'scatter',
-    orientation: 'v'
-};
-var datos=[trace1];
-var layout1 = {
-    showlegend: false,
-    autosize: true,
-    width: 450,
-    height: 200,
-    margin: {
-      l: 30,
-      r: 30,
-      b: 20,
-      t: 20,
-      pad: 2
-    }
+  });
+  var trace1 = {
+      x:dates,
+      y: xs,
+      type: 'scatter',
+      orientation: 'v'
+  };
+  var datos=[trace1];
+  var layout1 = {
+      showlegend: false,
+      autosize: true,
+      width: 450,
+      height: 200,
+      margin: {
+        l: 30,
+        r: 30,
+        b: 20,
+        t: 20,
+        pad: 2
+      }
 };
 
 Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
@@ -174,8 +177,6 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
   console.log($state.current);
 
 })
-
-
 .controller('NoteDetailCtrl', function($scope, $stateParams, Notes) {
   $scope.note = Notes.get($stateParams.noteId);
 })
@@ -183,23 +184,20 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
   $scope.weight = Weights.get($stateParams.weightId);
 })
 
-.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights,Items,Perfiles) {
+.controller('AccountCtrl', function($scope,$state,$ionicHistory,Weights,Items,Notes,Perfiles) {
   $scope.dataErased=localStorage.getItem("items")?false:true;
   $scope.nuevoPerfil= false;
-  $scope.settings = {
-    enableFriends: true
-  };
-
-
-
   var weights= Weights.all();
   var items = Items.all();
+  var notes = Notes.all();
   var perfiles = Perfiles.all();
+  $scope.perfiles = perfiles;
+  $scope.profile=[{'weights':weights,'items':items,'notes':notes}];
 
-  $scope.profile=[weights,items];
   $scope.addProfile=function(){
-      localStorage.setItem("perfil", JSON.stringify($scope.profile));
-
+    console.log($scope);
+    Perfiles.add($scope.profile);
+    //  localStorage.setItem("perfil", JSON.stringify($scope.profile));
   };
   $scope.borrarDatos= function(){
     alert('Are you sure? this cannot be undone!',Weights.clear());

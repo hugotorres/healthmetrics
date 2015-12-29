@@ -87,7 +87,6 @@ var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("w
     }
   };
 })
-
 .factory('Notes', function() {
   // Might use a resource here that returns a JSON array
 var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes")):[];
@@ -119,7 +118,6 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
     }
   };
 })
-
 .factory('Perfiles', function() {
   // Might use a resource here that returns a JSON array
   var pf= localStorage.getItem("perfiles");
@@ -153,4 +151,3 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
     }
   };
 });
-
