@@ -77,7 +77,7 @@ angular.module('starter', ['ionic','starter.controllers', 'starter.services'])
         }
       }
     })
-      .state('tab.note-detail', {
+    .state('tab.note-detail', {
       url: '/notes/:noteId',
       views: {
         'tab-notes': {
@@ -85,7 +85,7 @@ angular.module('starter', ['ionic','starter.controllers', 'starter.services'])
           controller: 'NoteDetailCtrl'
         }
       }
-    }
+    })
     .state('tab.chat-detail', {
       url: '/chats/:weightId',
       views: {

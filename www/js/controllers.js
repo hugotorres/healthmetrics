@@ -8,14 +8,12 @@ angular.module('starter.controllers', [])
   };
   function applyRemoteData(newitems){$scope.items = newitems.results};
 */
-var perfs = Perfiles.all();
+/*var perfs = Perfiles.all();
 if(!perfs.length){
   console.log('nohay perilesaun');
   $state.go('initial');
-
-
 }
-      console.log($state.current);
+*/
   var xs=[];
   var ys=[];
   var dates=[];
@@ -77,11 +75,11 @@ var layout1 = {
     var fecha= new Date();
     var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
     Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
-
     Items.save();
    // pressure.data[0].opacity = 0.2;
     Plotly.addTraces(pressure, {x: [fechaFormateada],y: [$scope.newPressure.low]});
     Plotly.addTraces(pressure, {x: [fechaFormateada],y: [$scope.newPressure.high]});
+
     Plotly.redraw(pressure);
     $scope.newPressure={};
   };
@@ -146,8 +144,6 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
   };
 })
 
-
-
 .controller('NotesCtrl', function($scope, Notes) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -163,7 +159,7 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
     $scope.addNote=function(){
         var fecha= new Date();
         var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
-        Notes.add({'note':$scope.newNote.txt,'date':fechaFormateada});
+        Notes.add({'note':$scope.newNote.txt,'date':fechaFormateada,'id':fecha.getUTCMilliseconds(),'title':$scope.newNote.title});
         Notes.save();
         $scope.newNote={};
   };

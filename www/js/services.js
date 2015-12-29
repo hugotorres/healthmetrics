@@ -39,6 +39,7 @@ var items = localStorage.getItem("items")?JSON.parse(localStorage.getItem("items
     add:function(item){
 
       items.unshift(item);
+
     },
     remove: function(item) {
       item.splice(items.indexOf(item), 1);
@@ -57,8 +58,6 @@ var items = localStorage.getItem("items")?JSON.parse(localStorage.getItem("items
 })
 .factory('Weights', function() {
   // Might use a resource here that returns a JSON array
-
-
 var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("weights")):[];
   return {
     all: function() {
@@ -71,8 +70,7 @@ var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("w
       localStorage.clear();
       console.log('borrando datos');
       weights=[];
-    }
-    ,
+    },
      add:function(weight){
       weights.unshift(weight);
     },
@@ -92,20 +90,19 @@ var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("w
 
 .factory('Notes', function() {
   // Might use a resource here that returns a JSON array
-var notes = localStorage.getItem("profiles")?JSON.parse(localStorage.getItem("weights")):[];
+var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes")):[];
   return {
     all: function() {
       return notes;
     },
     save:function(){
-      localStorage.setItem("weights", JSON.stringify(notes));
+      localStorage.setItem("notes", JSON.stringify(notes));
     },
     clear:function(){
       localStorage.clear();
       console.log('borrando datos');
       notes=[];
-    }
-    ,
+    },
      add:function(note){
       notes.unshift(note);
     },

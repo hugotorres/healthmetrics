@@ -1,13 +1,16 @@
 <ion-view view-title="Health Metrics-Notes">
   <ion-content>
-  <div id="weightGraph" style="max-width:400px;max-height:400px;margin:0 auto;"></div>
     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left;">
       New Note <i class="ion-android-add-circle"></i>
     </div>
     <div class="item item-text-wrap" ng-if="addOne">
       <div >
+          <label class="item item-input ">
+          <span class="input-label">Titulo</span> <input type="text" name="noteTitle" ng-model="newNote.title" style="border:thin solid lightgrey;"/>
+
+        </label>
         <label class="item item-input ">
-          <span class="input-label">Note</span>
+          <span class="input-label">Nota</span>
           <textarea name="note" ng-model="newNote.txt" rows="5" cols="30" style="border:thin solid lightgrey;max-width:240px;"></textarea>
         </label>
         <div ng-click="nuevo=false;">
