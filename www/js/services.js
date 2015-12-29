@@ -121,7 +121,8 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
 .factory('Perfiles', function() {
   // Might use a resource here that returns a JSON array
   var pf= localStorage.getItem("perfiles");
-  var perfiles = pf?JSON.parse(pf):[];
+  var emptyProfile= {'items':[],'weights':[],'notes':[]};
+  var perfiles = pf?JSON.parse(pf):[emptyProfile];
   return {
     all: function() {
       return perfiles;

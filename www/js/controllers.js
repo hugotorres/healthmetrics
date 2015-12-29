@@ -14,23 +14,19 @@ if(!perfs.length){
   $state.go('initial');
 }
 */
-  var emptyUser={'items':null,'weights':null,'notes':null,'name':null,'age':null};
+  $scope.newPressure={};
+  $scope.addOne=false;
   var xs=[];
   var ys=[];
   var dates=[];
   var datosGrafica= [];
   $scope.perfiles= Perfiles.all();
   $scope.profile=$scope.perfiles[0];
-  $scope.newProfile= $scope.perfiles.lenght?$scope.perfiles[0]:emptyUser;
 
 $scope.newPerfil=function(){
-  Perfiles.add($scope.newProfile);
   Perfiles.save();
-  $scope.perfiles= Perfiles.all();
-  $scope.profile=$scope.perfiles[0];
 };
 $scope.items = $scope.profile.items;
-/*scope.items=Items.all();*/
 $scope.items.forEach(function(item){
   xs.unshift(item.high);
   ys.unshift(item.low);
@@ -68,15 +64,12 @@ var layout1 = {
   $scope.remove = function(item) {
     Items.remove(item);
   };
-
-  $scope.newPressure={};
-  $scope.addOne=false;
-
   $scope.addPressure=function(){
     var fecha= new Date();
     var fechaFormateada = fecha.getDate()+'/'+fecha.getMonth()+'/'+fecha.getFullYear();
-    console.log('breakpoint');
-     $scope.items.unshift({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
+
+    $scope.items.unshift({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
+    console.log($scope.items);
     Perfiles.save();
    // Items.add({'high':$scope.newPressure.high,'low':$scope.newPressure.low,'date':fechaFormateada});
    //Items.save();

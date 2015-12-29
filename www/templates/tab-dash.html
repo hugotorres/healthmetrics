@@ -3,7 +3,7 @@
 
 <ion-view view-title="Health metrics pressure">
   <ion-content class="padding">
-    <div ng-if="!profile" class="formulario-inicial">
+    <div ng-if="!profile.name" class="formulario-inicial">
       <div >
 
         <div class="logo" style="text-align:center;">
@@ -43,11 +43,11 @@
             </button>
       </div>
      </div>
-      <div id="pressure" style="max-height:400px;margin:0 auto;"   ng-show="profile">
+      <div id="pressure" style="max-height:400px;margin:0 auto;"   ng-show="profile.name">
 
       </div>
 
-  <div class=""  id="nuevaPresion" ng-if="profile">
+  <div class=""  id="nuevaPresion" ng-if="profile.name">
     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
       Add Pressure <i class="ion-android-add-circle"></i>
     </div>
