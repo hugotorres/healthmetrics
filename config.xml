@@ -10,7 +10,7 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
 </author>
   <content src="index.html"/>
   <access origin="*"/>
-  <preference name="SplashScreen" value="img/icon_072.png" />
+  <preference name="SplashScreen" value="img/LOGIYO.png" />
   <preference name="AutoHideSplashScreen" value="false" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
@@ -22,23 +22,23 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
   <platform name="android">
-    <icon src="img/icon_072.png" density="ldpi"/>
-    <icon src="img/icon_072.png" density="mdpi"/>
-    <icon src="img/icon_072.png" density="hdpi"/>
-    <icon src="img/icon_072.png" density="xhdpi"/>
-    <icon src="img/icon_072.png" density="xxhdpi"/>
-    <icon src="img/icon_072.png" density="xxxhdpi"/>
-    <splash src="img/icon_072.png" density="land-ldpi"/>
-    <splash src="img/icon_072.png" density="land-mdpi"/>
-    <splash src="img/icon_072.png" density="land-hdpi"/>
-    <splash src="img/icon_072.png" density="land-xhdpi"/>
-    <splash src="img/icon_072.png" density="land-xxhdpi"/>
-    <splash src="img/icon_072.png" density="land-xxxhdpi"/>
-    <splash src="img/icon_072.png" density="port-ldpi"/>
-    <splash src="img/icon_072.png" density="port-mdpi"/>
-    <splash src="img/icon_072.png" density="port-hdpi"/>
-    <splash src="img/icon_072.png" density="port-xhdpi"/>
-    <splash src="img/icon_072.png" density="port-xxhdpi"/>
-    <splash src="img/icon_072.png" density="port-xxxhdpi"/>
+    <icon src="img/LOGIYO.png" density="ldpi"/>
+    <icon src="img/LOGIYO.png" density="mdpi"/>
+    <icon src="img/LOGIYO.png" density="hdpi"/>
+    <icon src="img/LOGIYO.png" density="xhdpi"/>
+    <icon src="img/LOGIYO.png" density="xxhdpi"/>
+    <icon src="img/LOGIYO.png" density="xxxhdpi"/>
+    <splash src="img/LOGIYO.png" density="land-ldpi"/>
+    <splash src="img/LOGIYO.png" density="land-mdpi"/>
+    <splash src="img/LOGIYO.png" density="land-hdpi"/>
+    <splash src="img/LOGIYO.png" density="land-xhdpi"/>
+    <splash src="img/LOGIYO.png" density="land-xxhdpi"/>
+    <splash src="img/LOGIYO.png" density="land-xxxhdpi"/>
+    <splash src="img/LOGIYO.png" density="port-ldpi"/>
+    <splash src="img/LOGIYO.png" density="port-mdpi"/>
+    <splash src="img/LOGIYO.png" density="port-hdpi"/>
+    <splash src="img/LOGIYO.png" density="port-xhdpi"/>
+    <splash src="img/LOGIYO.png" density="port-xxhdpi"/>
+    <splash src="img/LOGIYO.png" density="port-xxxhdpi"/>
   </platform>
 </widget>
