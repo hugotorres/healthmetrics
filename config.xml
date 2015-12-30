@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.dailyidea280563" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>Health metrics</name>
-  <icon src="img/icon_072.png"/>
+  <icon src="img/LOGIYO.png"/>
   <description>
 A simple  health tracking app, meassure your weight,blood pressure and more.
 </description>
@@ -22,6 +22,7 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
   <platform name="android">
+
     <icon src="img/LOGIYO.png" density="ldpi"/>
     <icon src="img/LOGIYO.png" density="mdpi"/>
     <icon src="img/LOGIYO.png" density="hdpi"/>

@@ -43,3 +43,8 @@ ion-item.item{padding:0px;}
     font-size: 13px;
     display: inline-block;
 }
+
+.ng-invalid {
+    border: 2px solid red !important;
+    /* border-radius: 10px !important; */
+}
