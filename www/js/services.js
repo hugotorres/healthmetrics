@@ -140,6 +140,14 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
       perfiles.unshift(perfil);
       localStorage.setItem("perfiles", JSON.stringify(perfiles));
     },
+    getPressures: function(){
+        return perfiles[0].items?perfiles[0].items:[];
+    },
+    addPressure: function(pressure){
+      perfiles[0].items= perfiles[0].items?perfiles[0].items:[];
+      perfiles[0].items.unshift(pressure);
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
     addWeight: function(weight){
       perfiles[0].weights= perfiles[0].weights?perfiles[0].weights:[];
       perfiles[0].weights.unshift(weight);
@@ -147,6 +155,26 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
     },
     getWeights: function(){
       return perfiles[0].weights?perfiles[0].weights:[];
+    },
+    getNotes: function(){
+      return perfiles[0].notes?perfiles[0].notes:[];
+    },
+    addNote:function(note){
+      perfiles[0].notes= perfiles[0].notes?perfiles[0].notes:[];
+      perfiles[0].notes.unshift(note);
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
+    getNote:function(noteId){
+      var notes =perfiles[0].notes;
+      for (var i = 0; i < notes.length; i++) {
+        if (notes[i].id === parseInt(noteId)) {
+          return notes[i];
+        }
+      }
+      return null;
+    },
+    getNoteId:function(){
+      return perfiles[0].notes?perfiles[0].notes:[];
     }
     ,
     remove: function(perfiles) {

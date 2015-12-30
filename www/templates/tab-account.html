@@ -6,28 +6,32 @@
           <h2>Profiles</h2>
         </div>
 
-        <div class="list perfiles" ng-repeat="perfil in perfiles">
-
-					<span>{{perfil.name}}  </span>		<span>{{perfil.age}} </span>  <span>{{perfil.weight}}</span>
-
+        <div class="list perfiles" ng-repeat="perfil in perfiles ">
+<div class="perfil" ng-if="perfil.name">
+					<span>Name:{{perfil.name}}  </span>		
+          <span>Age:{{perfil.age}} </span>  
+          <span>Initial Weight:{{perfil.weight}}</span>
+</div>
         </div>
-
-     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
+<div class="hidden" style="display:none;">
+  <!--  esto esta oculto mientras soluciono la parte de añadir mas perfiles y el ordenamiento de dichos perfiles-->
+     <div class=" item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
       Add Profile <i class="ion-android-add-circle"></i>
     </div>
+
     <div class="item item-text-wrap perfilnuevo" ng-if="addOne">
       <div >
         <div class="row">
           <div class="col col-75">
             <label class="item item-input ">
                 <span class="input-label">Name</span>
-                <input type="text"   name="name" ng-model="anotherprofile.name">
+                <input type="text"   name="name" ng-model="nuevoPerfil.name">
               </label>
           </div>
           <div class="col">
           	  <label class="item item-input ">
                 <span class="input-label">Age</span>
-                <input type="number" max="99" name="age" ng-model="anotherprofile.age">
+                <input type="number" max="99" name="age" ng-model="nuevoPerfil.age">
               </label>
           </div>
         </div>
@@ -35,7 +39,7 @@
 
 
         <div ng-click="nuevo=false;">
-           <button class="button button-small button-full button-positive" ng-class="{'disabled':!anotherprofile.name || !anotherprofile.age}" ng-click="addProfile()">
+           <button class="button button-small button-full button-positive" ng-class="{'disabled':!nuevoPerfil.name || !nuevoPerfil.age}" ng-click="addProfile()">
                   Save Profile
             </button>
         <div>
@@ -43,6 +47,7 @@
       </div>
     </div>
 
+</div>
       </div>
     </div>
     <ion-list>
