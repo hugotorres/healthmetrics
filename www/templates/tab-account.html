@@ -21,7 +21,7 @@
       <div >
 
         <div class="row">
-          <div class="col col-75">
+          <div class="col col-55">
             <label class="item item-input ">
                 <span class="input-label">Name</span>
                 <input type="text"   name="name" ng-model="profile.name">
@@ -34,8 +34,6 @@
               </label>
           </div>
         </div>
-
-
 
         <div ng-click="nuevo=false;">
            <button class="button button-small button-full button-positive" ng-class="{'disabled':!profile.name || !profile.age}" ng-click="addProfile()">
@@ -56,5 +54,7 @@ ng-class="{'button-calm':dataErased,'button-assertive':!dataErased}">
 </button>
 
     </ion-list>
+<button onclick="window.plugins.socialsharing.share('Message only')">message only</button>
+    <div ng-click="sendfeedback()" class="well"> me gusta!</div>
   </ion-content>
 </ion-view>

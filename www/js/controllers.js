@@ -190,7 +190,11 @@ Plotly.newPlot('weightGraph', datos,layout1, {staticPlot: true});
     enableFriends: true
   };
 
-
+$scope.sendFeedback = function () {
+  console.log('a alguien le ha gustado');
+    $cordovaSocialSharing
+            .shareViaEmail('me ha gustado mucho la aplicacion', 'buena aplicacion', 'hugotorreslinares@gmail.com');
+}
 
   var weights= Weights.all();
   var items = Items.all();
