@@ -48,3 +48,16 @@ ion-item.item{padding:0px;}
     border: 2px solid red !important;
     /* border-radius: 10px !important; */
 }
+
+.title.title-center.header-item {
+    background: rgba(230, 228, 228, 0.97);
+    color: #EF0808;
+    padding: 0px;
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+
+a.tab-item.tab-item-active {
+    background: rgba(128, 128, 128, 0.26);
+}
