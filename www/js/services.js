@@ -30,10 +30,11 @@ function handleError(response){
         }
     });
 */
-var items = localStorage.getItem("items")?JSON.parse(localStorage.getItem("items")):[];
+var perfiles = localStorage.getItem("perfiles")?JSON.parse(localStorage.getItem("perfiles")):[{'weights':null,'notes':null,'items':null}];
+var items = perfiles[0].items;
    return{
     save:function(){
-      localStorage.setItem("items", JSON.stringify(items));
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
     },
     all:function(){return items;},
     add:function(item){
@@ -87,7 +88,6 @@ var weights = localStorage.getItem("weights")?JSON.parse(localStorage.getItem("w
     }
   };
 })
-
 .factory('Notes', function() {
   // Might use a resource here that returns a JSON array
 var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes")):[];
@@ -119,11 +119,11 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
     }
   };
 })
-
 .factory('Perfiles', function() {
   // Might use a resource here that returns a JSON array
   var pf= localStorage.getItem("perfiles");
-  var perfiles = pf?JSON.parse(pf):[];
+  var emptyProfile= {'items':[],'weights':[],'notes':[]};
+  var perfiles = pf?JSON.parse(pf):[emptyProfile];
   return {
     all: function() {
       return perfiles;
@@ -140,6 +140,43 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
       perfiles.unshift(perfil);
       localStorage.setItem("perfiles", JSON.stringify(perfiles));
     },
+    getPressures: function(){
+        return perfiles[0].items?perfiles[0].items:[];
+    },
+    addPressure: function(pressure){
+      perfiles[0].items= perfiles[0].items?perfiles[0].items:[];
+      perfiles[0].items.unshift(pressure);
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
+    addWeight: function(weight){
+      perfiles[0].weights= perfiles[0].weights?perfiles[0].weights:[];
+      perfiles[0].weights.unshift(weight);
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
+    getWeights: function(){
+      return perfiles[0].weights?perfiles[0].weights:[];
+    },
+    getNotes: function(){
+      return perfiles[0].notes?perfiles[0].notes:[];
+    },
+    addNote:function(note){
+      perfiles[0].notes= perfiles[0].notes?perfiles[0].notes:[];
+      perfiles[0].notes.unshift(note);
+      localStorage.setItem("perfiles", JSON.stringify(perfiles));
+    },
+    getNote:function(noteId){
+      var notes =perfiles[0].notes;
+      for (var i = 0; i < notes.length; i++) {
+        if (notes[i].id === parseInt(noteId)) {
+          return notes[i];
+        }
+      }
+      return null;
+    },
+    getNoteId:function(){
+      return perfiles[0].notes?perfiles[0].notes:[];
+    }
+    ,
     remove: function(perfiles) {
       perfiles.splice(perfiles.indexOf(perfiles), 1);
     },
@@ -153,4 +190,3 @@ var notes = localStorage.getItem("notes")?JSON.parse(localStorage.getItem("notes
     }
   };
 });
-

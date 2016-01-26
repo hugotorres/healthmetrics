@@ -35,3 +35,16 @@ ion-item.item{padding:0px;}
   border: thin dotted #e4e4e4;
 }
 .item{padding:6px;}
+.perfiles span {
+    border: thin solid rgba(0, 0, 0, 0.08);
+    padding: 5px 3px;
+    min-width: 31% !important;
+    /* text-align: center; */
+    font-size: 13px;
+    display: inline-block;
+}
+
+.ng-invalid {
+    border: 2px solid red !important;
+    /* border-radius: 10px !important; */
+}

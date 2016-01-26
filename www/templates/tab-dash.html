@@ -3,22 +3,28 @@
 
 <ion-view view-title="Health metrics pressure">
   <ion-content class="padding">
-    <div ng-if="!profile">
-      <div>
-        <h3>Lets Begin!
+    <div ng-if="!profile.name" class="formulario-inicial">
+      <div >
+
+        <div class="logo" style="text-align:center;">
+<img src="img/LOGIYO.png" alt="health metrics" width="200px" />
+        </div>
+        <div style="text-align:center;">
+        	  <h3>Lets Begin!
         </h3>
         <p> Please provide a little info.</p>
+        </div>
  				<div class="row">
           <div class="col col-75">
             <label class="item item-input ">
                 <span class="input-label">Name</span>
-                <input type="text"   name="name" ng-model="newProfile.name">
+                <input type="text"   name="name" ng-model="newprofile.name">
               </label>
           </div>
           <div class="col">
           	  <label class="item item-input ">
                 <span class="input-label">Age</span>
-                <input type="number" max="99" name="age" ng-model="newProfile.age">
+                <input type="number" max="99" name="age" ng-model="newprofile.age">
               </label>
           </div>
         </div>
@@ -26,28 +32,24 @@
            <div class="col">
                 <label class="item item-input ">
                   <span class="input-label">Initial weight</span>
-                  <input type="number" max="99" name="age" ng-model="newProfile.weight">
-                   <input type="hidden" name="date" ng-model="newProfile.initialDate" value="new Date()">
+                  <input type="number" max="99" name="age" ng-model="newprofile.weight">
+                   <input type="hidden" name="date" ng-model="newprofile.initialDate" value="new Date()">
                 </label>
             </div>
         </div>
- 						<button class="button button-small button-full button-positive" ng-class="{'disabled':!newProfile.name || !newProfile.age}" ng-click="newPerfil()">
+ 						<button class="button button-small button-full button-positive" ng-class="{'disabled':!newprofile.name || !newprofile.age}" ng-click="newPerfil()">
                   Save Profile and start
             </button>
       </div>
      </div>
-      <div id="pressure" style="max-height:400px;margin:0 auto;"   ng-show="profile">
-
+      <div id="pressure" style="max-height:400px;margin:0 auto;" ng-show="profile.name">
       </div>
-
-  <div class=""  id="nuevaPresion" ng-if="profile">
+  <div class=""  id="nuevaPresion" ng-if="profile.name">
     <div class="item item-divider balanced item-icon-right" ng-click="addOne=!addOne" style="text-align:left !important;">
       Add Pressure <i class="ion-android-add-circle"></i>
     </div>
-
     <div class="item item-text-wrap" ng-if="addOne">
       <div >
-
           <div class="row">
             <div class="col col-50">
               <label class="item item-input ">
