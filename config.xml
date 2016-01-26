@@ -2,7 +2,7 @@
 <widget id="com.ionicframework.dailyidea280563" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
 
   <name>Health metrics</name>
-  <icon src="img/LOGIYO.png"/>
+  <icon src="LOGIYO.png"/>
   <description>
 A simple  health tracking app, meassure your weight,blood pressure and more.
 </description>
@@ -11,7 +11,7 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
 </author>
   <content src="index.html"/>
   <access origin="*"/>
-  <preference name="SplashScreen" value="img/LOGIYO.png" />
+  <preference name="SplashScreen" value="LOGIYO.png" />
   <preference name="AutoHideSplashScreen" value="false" />
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
@@ -21,8 +21,10 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <feature name="SocialSharing">
+  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+  </feature>
   <platform name="android">
-  <gap:plugin name="cordova-plugin-x-socialsharing" source="npm" />
     <icon src="img/LOGIYO.png" density="ldpi"/>
     <icon src="img/LOGIYO.png" density="mdpi"/>
     <icon src="img/LOGIYO.png" density="hdpi"/>
