@@ -7,7 +7,7 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
 </description>
   <author email="info@perrocallejero.co" href="http://www.perrocallejero.co/">
    Hugo Torres
-</author>
+  </author>
   <content src="index.html"/>
   <access origin="*"/>
   <preference name="SplashScreen" value="LOGIYO.png" />
@@ -19,9 +19,6 @@ A simple  health tracking app, meassure your weight,blood pressure and more.
   <preference name="BackupWebStorage" value="none"/>
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
-  <feature name="SocialSharing">
-  <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
   </feature>
   <platform name="android">
     <icon src="img/LOGIYO.png" density="ldpi"/>
